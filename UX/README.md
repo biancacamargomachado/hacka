@@ -1,2 +1,2 @@
 # hacka
-Aqui ficam armazenas os artefatos UX da aplicação.
+Aqui ficam armazenados os artefatos UX da aplicação.
