@@ -11,7 +11,14 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 const AppNavigator = createStackNavigator(
   {
-    Home: {screen: Inicio},
+    Home: {
+      screen: Inicio,
+      navigationOptions: ({navigation}) => ({
+        tabBarVisible: false,
+        barStyle: {height: 0},
+        tabBarComponent: null,
+      }),
+    },
     Questoes: {screen: Questoes},
   },
   {
@@ -31,11 +38,13 @@ const mainNavigation = createMaterialBottomTabNavigator(
       navigationOptions: ({navigation}) => ({
         tabBarVisible: true,
         barStyle: {height: 0},
+        tabBarComponent: null,
       }),
     },
     TelaA: {
       screen: TelaA,
       navigationOptions: () => ({
+        labelStyle: {position: 'absolute', marginLeft: -50},
         tabBarIcon: ({focused}) => (
           <Icon name="lock" size={20} color={focused ? '#fff' : '#ddd'} />
         ),
