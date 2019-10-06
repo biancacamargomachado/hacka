@@ -19,7 +19,14 @@ const AppNavigator = createStackNavigator(
         tabBarComponent: null,
       }),
     },
-    Questoes: {screen: Questoes},
+    Questoes: {
+      screen: Questoes,
+      navigationOptions: ({navigation}) => ({
+        tabBarVisible: false,
+        headerStyle: {backgroundColor: '#DCDCDC'},
+        tabBarComponent: null,
+      }),
+    },
   },
   {
     initialRouteName: 'Home',
