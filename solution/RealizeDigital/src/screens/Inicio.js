@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React from 'react';
 import {TouchableOpacity} from 'react-native';
 import {SafeAreaView, ScrollView, View, Text, StatusBar} from 'react-native';
@@ -14,6 +6,13 @@ class Inicio extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  static navigationOptions = {
+    title: null,
+    headerLeft: null,
+    tabBarLabel: 'TAB',
+  };
+
   render() {
     const {navigate} = this.props.navigation;
     return (

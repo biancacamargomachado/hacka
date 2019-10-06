@@ -1,23 +1,18 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, {Component} from 'react';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import Inicio from './src/screens/Inicio';
 import Questoes from './src/screens/Questoes';
 import RealizarTrajetoria from './src/screens/RealizarTrajetoria';
+import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
+import TelaA from './src/screens/TelaA';
+import TelaB from './src/screens/TelaA';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const AppNavigator = createStackNavigator(
   {
     Home: {screen: Inicio},
     Questoes: {screen: Questoes},
-    Realizando: {screen: RealizarTrajetoria},
   },
   {
     initialRouteName: 'Home',
@@ -29,7 +24,49 @@ const AppNavigator = createStackNavigator(
   },
 );
 
-const AppContainer = createAppContainer(AppNavigator);
+const mainNavigation = createMaterialBottomTabNavigator(
+  {
+    Home: {
+      screen: AppNavigator,
+      navigationOptions: ({navigation}) => ({
+        tabBarVisible: true,
+        barStyle: {height: 0},
+      }),
+    },
+    TelaA: {
+      screen: TelaA,
+      navigationOptions: () => ({
+        tabBarIcon: ({focused}) => (
+          <Icon name="lock" size={20} color={focused ? '#fff' : '#ddd'} />
+        ),
+      }),
+    },
+    TelaB: {
+      screen: TelaB,
+      navigationOptions: () => ({
+        tabBarIcon: ({focused}) => (
+          <Icon name="rocket" size={20} color={focused ? '#fff' : '#ddd'} />
+        ),
+      }),
+    },
+    Realizando: {
+      screen: RealizarTrajetoria,
+      navigationOptions: () => ({
+        tabBarIcon: ({focused}) => (
+          <Icon name="rocket" size={20} color={focused ? '#fff' : '#ddd'} />
+        ),
+        barStyle: {height: 'auto'},
+      }),
+    },
+  },
+  {
+    barStyle: {
+      backgroundColor: '#7159c1',
+    },
+  },
+);
+
+const AppContainer = createAppContainer(mainNavigation);
 
 class App extends Component {
   render() {
