@@ -30,7 +30,14 @@ class Inicio extends React.Component {
     return (
       <>
         <ScrollView contentInsetAdjustmentBehavior="automatic">
-          <View style={{flex: 1, width: width, height: height}}>
+          <View
+            style={{
+              flex: 1,
+              width: width,
+              height: height,
+              opacity: 0.8,
+              backgroundColor: '#000',
+            }}>
             <Image
               resizeMode="cover"
               style={{
@@ -41,7 +48,37 @@ class Inicio extends React.Component {
               }}
               source={require('../../assets/home.jpg')}
             />
-            <View>
+            <View
+              style={{
+                maxWidth: '80%',
+                justifyContent: 'space-between',
+                alignSelf: 'center',
+                marginTop: 30
+              }}>
+              <Text
+                style={{
+                  fontSize: 26,
+                  fontFamily: 'Roboto',
+                  fontWeight: 'bold',
+                  color: '#000',
+                  textAlign: 'left',
+                  lineHeight: 33,
+                }}>
+                Bem-vindo(a) ao Realize!
+              </Text>
+              <Text
+                style={{
+                  fontSize: 26,
+                  fontFamily: 'Roboto',
+                  fontWeight: 'bold',
+                  color: '#000',
+                  textAlign: 'left',
+                  lineHeight: 33,
+                }}>
+                Aqui você encontra benefícios e soluções pensadas para você.
+              </Text>
+            </View>
+            <View style={{ marginTop: 300, marginRight: 15 }}>
               <Button title="Começar" onPress={() => navigate('Questoes')} />
             </View>
           </View>
